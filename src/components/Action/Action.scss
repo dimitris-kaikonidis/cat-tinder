@@ -1,0 +1,27 @@
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action {
+    @include center;
+    flex-direction: column;
+    width: 100px;
+
+    .action-button {
+        @include center;
+        padding: 10px;
+        border-radius: 100%;
+        img {
+            cursor: pointer;
+            max-width: 40px;
+            max-height: 40px;
+            font-size: 10px;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}
