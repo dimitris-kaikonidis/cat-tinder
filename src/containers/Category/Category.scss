@@ -4,20 +4,32 @@
     align-items: center;
 }
 
+@mixin border-top-radius {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
 @mixin upper {
     width: 450px;
     height: 350px;
-    box-sizing: border-box;
+    max-width: 450px;
+    max-height: 450px;
     border: solid lightgrey 1px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
     border-bottom: none;
+    @include border-top-radius;
+    @media screen and (max-width: 490px) {
+        width: 90%;
+    }
 }
 
 #rate {
     @include center-column;
     margin-top: 50px;
     width: fit-content;
+
+    .carousel-root {
+        @include upper;
+    }
 
     .loading {
         @include upper;
@@ -36,9 +48,13 @@
         width: 100%;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+        @media screen and (max-width: 490px) {
+            width: 90%;
+        }
 
         h6 {
             margin: 0;
+            margin-top: 5px;
             color: gray;
         }
 
@@ -76,6 +92,19 @@
                     border: solid green 1px;
                 }
             }
+        }
+    }
+}
+
+.slider {
+    height: 350px;
+
+    .slide {
+        @include border-top-radius;
+        img {
+            @include border-top-radius;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }

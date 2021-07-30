@@ -27,18 +27,18 @@ export default function Home() {
             <h3>Select a category</h3>
             <ul className={loading ? "" : "ready"}>
                 {categories.map(category => (
-                    <Link
-                        key={category.id}
-                        to={{
-                            pathname: `/category/${category.name}`,
-                            state: { id: category.id },
-                        }}
-                    >
-                        <li>
+                    <li>
+                        <Link
+                            key={category.id}
+                            to={{
+                                pathname: `/category/${category.name}`,
+                                state: { id: category.id },
+                            }}
+                        >
                             <CatImage id={category.id} name={category.name} />
                             <h4>{category.name}</h4>
-                        </li>
-                    </Link>
+                        </Link>
+                    </li>
                 ))}
             </ul>
         </div>

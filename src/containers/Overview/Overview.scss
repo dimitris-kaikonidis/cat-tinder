@@ -50,6 +50,7 @@
         @include space-between;
 
         .total {
+            width: 200px;
             @include center;
             .numbers {
                 margin-left: 50px;
@@ -118,6 +119,22 @@
             &:active {
                 transform: translateY(1px);
             }
+        }
+    }
+
+    @media screen and (max-width: 720px) {
+        #results {
+            flex-direction: column;
+            align-items: center;
+
+            .total {
+                margin-bottom: 20px;
+                @include space-between;
+            }
+        }
+
+        #restart {
+            margin-top: 40px;
         }
     }
 }

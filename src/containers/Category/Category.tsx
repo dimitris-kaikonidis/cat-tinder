@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router";
 import Loading from "../../components/Loading/Loading";
 import Action from "../../components/Action/Action";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 interface Location {
     id: number;
@@ -28,13 +30,13 @@ export default function Category() {
     const [images, setImages] = useState<string[]>([]);
     const [imageIdx, setImageIdx] = useState(0);
     const [loading, setLoading] = useState(true);
-    const { state } = useLocation<Location>();
     const [stats, setStats] = useState<Stats>({
         rated: 0,
         petted: 0,
         notPetted: 0,
         skipped: 0,
     });
+    const { state } = useLocation<Location>();
     const history = useHistory();
 
     useEffect(() => {
@@ -69,7 +71,15 @@ export default function Category() {
 
     return (
         <div id="rate">
-            {loading ? <Loading /> : <img id="display-cat" src={images[imageIdx]} alt="cat" />}
+            {loading ? (
+                <Loading />
+            ) : (
+                <Carousel infiniteLoop={false} showArrows={false} showIndicators={false} showStatus={false} showThumbs={false} selectedItem={imageIdx}>
+                    {images.map((pic, idx) => (
+                        <img key={idx} src={pic} alt="cat" />
+                    ))}
+                </Carousel>
+            )}
             <div id="under">
                 <h6>{`Cat ${imageIdx + 1}/10`}</h6>
                 <div id="actions">
