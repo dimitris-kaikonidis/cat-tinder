@@ -74,7 +74,15 @@ export default function Category() {
             {loading ? (
                 <Loading />
             ) : (
-                <Carousel infiniteLoop={false} showArrows={false} showIndicators={false} showStatus={false} showThumbs={false} selectedItem={imageIdx}>
+                <Carousel
+                    infiniteLoop={false}
+                    showArrows={false}
+                    showIndicators={false}
+                    showStatus={false}
+                    showThumbs={false}
+                    selectedItem={imageIdx}
+                    swipeable={false}
+                >
                     {images.map((pic, idx) => (
                         <img key={idx} src={pic} alt="cat" />
                     ))}
