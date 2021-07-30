@@ -10,8 +10,8 @@ interface ActionProps {
 export default function Action({ name, src, descr, handler }: ActionProps) {
     return (
         <div className="action" id={name}>
-            <div className="action-button">
-                <img src={src} alt={descr} onClick={handler} />
+            <div className="action-button" onClick={handler}>
+                <img src={src} alt={descr} />
             </div>
             <p>{descr}</p>
         </div>

@@ -14,6 +14,29 @@
     align-items: center;
 }
 
+@mixin category($colorMain, $colorSec) {
+    .category-result {
+        padding: 10px;
+        border-radius: 100%;
+        @include center;
+        background-color: $colorSec;
+        border: solid $colorMain 1px;
+
+        img {
+            max-width: 40px;
+            max-height: 40px;
+            font-size: 10px;
+        }
+    }
+
+    .numbers {
+        h3 {
+            color: $colorMain;
+            text-align: end;
+        }
+    }
+}
+
 #overview {
     margin-top: 50px;
     width: 100%;
@@ -27,23 +50,7 @@
         @include space-between;
 
         .total {
-            @include space-between;
             @include center;
-
-            .category-result {
-                padding: 10px;
-                border: solid red 1px;
-                border-radius: 100%;
-                @include center;
-
-                img {
-                    cursor: pointer;
-                    max-width: 40px;
-                    max-height: 40px;
-                    font-size: 10px;
-                }
-            }
-
             .numbers {
                 margin-left: 50px;
                 display: flex;
@@ -56,6 +63,60 @@
                 h6 {
                     margin: 0;
                 }
+            }
+        }
+
+        #not-petted {
+            @include category(red, rgba(255, 0, 0, 0.05));
+        }
+
+        #skipped {
+            @include category(gray, rgba(128, 128, 128, 0.05));
+            img {
+                position: relative;
+                left: 2px;
+            }
+        }
+
+        #petted {
+            @include category(green, rgba(0, 128, 0, 0.05));
+        }
+    }
+
+    #restart {
+        margin-top: 80px;
+        @include column;
+        align-items: center;
+
+        button {
+            width: 250px;
+            font-size: 13px;
+            font-weight: 550;
+            padding: 15px 10px;
+            margin-bottom: 5px;
+            background-color: inherit;
+            border: none;
+
+            &:first-child {
+                border: none;
+                background-color: darkorange;
+                color: white;
+            }
+
+            &:last-child {
+                border: solid black 1.5px;
+            }
+
+            &:first-child:hover {
+                background-color: rgba(255, 140, 0, 0.8);
+            }
+
+            &:last-child:hover {
+                background-color: rgb(245, 245, 245);
+            }
+
+            &:active {
+                transform: translateY(1px);
             }
         }
     }
