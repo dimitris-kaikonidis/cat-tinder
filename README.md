@@ -4,7 +4,7 @@
 
 #### Tech Stack
 
--React & React Router
--TypeScript
--Sass
+*React & React Router
+*TypeScript
+*Sass
 
