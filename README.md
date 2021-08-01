@@ -1,10 +1,10 @@
-## Cat Tinder
+### Cat Tinder
 
-### Check it out @ https://kittytinder.herokuapp.com/
+#### Check it out @ https://kittytinder.herokuapp.com/
 
-#### Tech Stack
+#### Tech Stack: 
 
-*React & React Router
-*TypeScript
-*Sass
+- React & React Router
+- TypeScript
+- Sass
 
